@@ -443,7 +443,7 @@ section {
   text-shadow: 0 0 25px var(--main-color);
 }
 
-/* ===== SERVICE ===== */
+/* ===== SERVICE - FULLY FIXED FOR MOBILE ===== */
 .heading {
   font-size: 6rem;
   text-align: center;
@@ -451,10 +451,11 @@ section {
 
 .service {
   background-color: var(--bg-color);
+  padding: 5rem 9%;
 }
 
 .service h2 {
-  margin-bottom: 8rem;
+  margin-bottom: 5rem;
   opacity: 0;
   transform: translateY(-30px);
   transition: all 1s ease;
@@ -468,21 +469,25 @@ section {
 .service-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .service-container .service-box {
-  flex: 1 1;
+  flex: 1 1 300px;
+  max-width: 380px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   background: var(--second-bg-color);
-  padding: 3rem 2rem 4rem;
-  height: 400px;
+  padding: 2.5rem 1.5rem;
+  min-height: 400px;
+  height: auto;
   border-radius: 2rem;
   cursor: pointer;
   transition: all 0.5s ease;
@@ -509,15 +514,18 @@ section {
 }
 
 .service-container .service-box:hover {
-  transform: translateY(-15px) scale(1.03);
+  transform: translateY(-10px) scale(1.02);
   background: var(--bg-color);
   border: 1px solid var(--main-color);
   box-shadow: 0 0 25px var(--main-color);
 }
 
+.service-box .service-icon {
+  margin-bottom: 1.5rem;
+}
+
 .service-box .service-icon i {
-  font-size: 7rem;
-  margin-bottom: 2rem;
+  font-size: 5rem;
   color: var(--main-color);
   transition: transform 0.5s ease;
 }
@@ -531,14 +539,21 @@ section {
   color: var(--main-color);
 }
 
+.service-box .service-content {
+  width: 100%;
+}
+
 .service-box .service-content h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
   transition: color 0.3s ease;
+  line-height: 1.3;
 }
 
 .service-box .service-content p {
-  font-size: 1.4rem;
-  margin: 1rem 0 3rem;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  margin: 0;
   transition: color 0.3s ease;
 }
 
@@ -872,6 +887,14 @@ section {
 }
 
 @media (max-width: 995px) {
+  html {
+    font-size: 55%;
+  }
+
+  .header {
+    padding: 2rem 5%;
+  }
+
   #menu-icon {
     display: block;
   }
@@ -909,6 +932,37 @@ section {
   
   .about {
     flex-direction: column;
+    gap: 4rem;
+  }
+
+  .about-img img {
+    width: 50vw;
+  }
+
+  section {
+    padding: 5rem 5%;
+  }
+
+  /* SERVICE TABLET */
+  .service {
+    padding: 5rem 5%;
+  }
+
+  .service-container {
+    gap: 2.5rem;
+  }
+
+  .service-container .service-box {
+    flex: 1 1 calc(50% - 2rem);
+    max-width: 100%;
+  }
+
+  .service-box .service-content h1 {
+    font-size: 2rem;
+  }
+
+  .service-box .service-content p {
+    font-size: 1.3rem;
   }
 }
 
@@ -946,8 +1000,58 @@ section {
 }
 
 @media (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+
+  .header {
+    padding: 2rem 4%;
+  }
+
+  .heading {
+    font-size: 4.5rem;
+  }
+
+  /* SERVICE MOBILE */
+  .service {
+    padding: 4rem 2rem;
+  }
+
+  .service h2 {
+    font-size: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .service-container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .service-container .service-box {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-height: auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .service-box .service-icon i {
+    font-size: 4.5rem;
+  }
+
+  .service-box .service-content h1 {
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-box .service-content p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
+
+  /* PROJECTS MOBILE */
   .projects .heading {
-    font-size: 3rem;
+    font-size: 4rem;
   }
   
   .projects .project-box {
@@ -965,6 +1069,18 @@ section {
 }
 
 @media (max-width: 600px) {
+  .home-content h1 {
+    font-size: 3.2rem;
+  }
+
+  .home-content h3 {
+    font-size: 2.2rem;
+  }
+
+  .about-img img {
+    width: 70vw;
+  }
+
   .education .timeline::after {
     left: 31px;
   }
@@ -982,5 +1098,97 @@ section {
   
   .education .right {
     left: 0%;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 45%;
+  }
+
+  .header {
+    padding: 2rem 3%;
+  }
+
+  .logo {
+    font-size: 2.5rem;
+  }
+
+  .navbar {
+    width: 50%;
+  }
+
+  .home-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .home-content h3 {
+    font-size: 2rem;
+  }
+
+  .home-img img {
+    width: 65vw;
+  }
+
+  .btn {
+    font-size: 1.6rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  /* SERVICE SMALL MOBILE */
+  .service {
+    padding: 3rem 1.5rem;
+  }
+
+  .service h2 {
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .service-container .service-box {
+    padding: 2rem 1.2rem;
+  }
+
+  .service-box .service-icon i {
+    font-size: 4rem;
+  }
+
+  .service-box .service-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .service-box .service-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  .service-container .service-box:hover {
+    transform: translateY(-5px) scale(1.01);
+  }
+}
+
+@media (max-width: 360px) {
+  html {
+    font-size: 42%;
+  }
+
+  .heading {
+    font-size: 3.5rem;
+  }
+
+  .service h2 {
+    font-size: 3rem;
+  }
+
+  .service-box .service-icon i {
+    font-size: 3.5rem;
+  }
+
+  .service-box .service-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .service-box .service-content p {
+    font-size: 1.15rem;
   }
 }
