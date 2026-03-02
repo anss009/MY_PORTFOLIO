@@ -33,11 +33,11 @@ const animateOnScroll = () => {
   // About Section
   const aboutImg = document.querySelector('.about-img');
   const aboutContent = document.querySelector('.about-content');
-  
+
   if (aboutImg) {
     const aboutImgPosition = aboutImg.getBoundingClientRect().top;
     const screenPosition = window.innerHeight / 1.3;
-    
+
     if (aboutImgPosition < screenPosition) {
       aboutImg.classList.add('animate');
       aboutContent.classList.add('animate');
@@ -47,14 +47,14 @@ const animateOnScroll = () => {
   // Service Section
   const serviceHeading = document.querySelector('.service .heading');
   const serviceBoxes = document.querySelectorAll('.service-box');
-  
+
   if (serviceHeading) {
     const servicePosition = serviceHeading.getBoundingClientRect().top;
     const screenPosition = window.innerHeight / 1.3;
-    
+
     if (servicePosition < screenPosition) {
       serviceHeading.classList.add('animate');
-      
+
       serviceBoxes.forEach((box, index) => {
         setTimeout(() => {
           box.classList.add('animate');
@@ -66,14 +66,14 @@ const animateOnScroll = () => {
   // Projects Section
   const projectsHeading = document.querySelector('.projects .heading');
   const projectBoxes = document.querySelectorAll('.project-box');
-  
+
   if (projectsHeading) {
     const projectsPosition = projectsHeading.getBoundingClientRect().top;
     const screenPosition = window.innerHeight / 1.3;
-    
+
     if (projectsPosition < screenPosition) {
       projectsHeading.classList.add('animate');
-      
+
       projectBoxes.forEach((box, index) => {
         setTimeout(() => {
           box.classList.add('animate');
@@ -85,14 +85,14 @@ const animateOnScroll = () => {
   // Education Section
   const educationHeading = document.querySelector('.education .heading');
   const educationContainers = document.querySelectorAll('.education .container');
-  
+
   if (educationHeading) {
     const educationPosition = educationHeading.getBoundingClientRect().top;
     const screenPosition = window.innerHeight / 1.3;
-    
+
     if (educationPosition < screenPosition) {
       educationHeading.classList.add('animate');
-      
+
       educationContainers.forEach((container, index) => {
         setTimeout(() => {
           container.classList.add('animate');
@@ -115,13 +115,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
-    
+
     if (target) {
       target.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
-      
+
       // Close mobile menu after clicking
       if (navbar.classList.contains('active')) {
         navbar.classList.remove('active');
@@ -135,7 +135,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.addEventListener('mousemove', (e) => {
   const homeImg = document.querySelector('.home-img img');
   const aboutImg = document.querySelector('.about-img img');
-  
+
   if (homeImg) {
     const moveX = (e.clientX * 0.01);
     const moveY = (e.clientY * 0.01);
@@ -148,7 +148,7 @@ const typingText = document.querySelector('.home-content h3');
 if (typingText) {
   const text = typingText.getAttribute('data-text');
   let index = 0;
-  
+
   function type() {
     if (index < text.length) {
       typingText.textContent += text.charAt(index);
@@ -156,7 +156,7 @@ if (typingText) {
       setTimeout(type, 100);
     }
   }
-  
+
   // Uncomment below to enable typing effect
   // typingText.textContent = '';
   // setTimeout(type, 2000);
@@ -165,17 +165,17 @@ if (typingText) {
 // Add active state animation to buttons
 const buttons = document.querySelectorAll('.btn');
 buttons.forEach(button => {
-  button.addEventListener('click', function(e) {
+  button.addEventListener('click', function (e) {
     let ripple = document.createElement('span');
     ripple.classList.add('ripple');
     this.appendChild(ripple);
-    
+
     let x = e.clientX - e.target.offsetLeft;
     let y = e.clientY - e.target.offsetTop;
-    
+
     ripple.style.left = `${x}px`;
     ripple.style.top = `${y}px`;
-    
+
     setTimeout(() => {
       ripple.remove();
     }, 600);
@@ -197,7 +197,7 @@ serviceIcons.forEach(icon => {
 function animateCounter(element, target, duration = 2000) {
   let start = 0;
   const increment = target / (duration / 16);
-  
+
   const timer = setInterval(() => {
     start += increment;
     if (start >= target) {
@@ -224,45 +224,33 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all animated elements
-const animatedElements = document.querySelectorAll('.service-box, .project-box, .education .container');
+const animatedElements = document.querySelectorAll('.skill-box, .service-box, .project-box, .education .container');
 animatedElements.forEach(el => observer.observe(el));
 
-// Add cursor trail effect (optional - uncomment to enable)
+// Portfolio interactions initialized
 
-const coords = { x: 0, y: 0 };
-const circles = document.querySelectorAll('.cursor-circle');
 
-circles.forEach((circle, index) => {
-  circle.x = 0;
-  circle.y = 0;
-});
+// Form Submission Handling is now managed by Formspree in index.html
 
-window.addEventListener('mousemove', (e) => {
-  coords.x = e.clientX;
-  coords.y = e.clientY;
-});
+// Back to Top Button
+const backToTopBtn = document.createElement('div');
+backToTopBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+backToTopBtn.className = 'back-to-top';
+document.body.appendChild(backToTopBtn);
 
-function animateCircles() {
-  let x = coords.x;
-  let y = coords.y;
-  
-  circles.forEach((circle, index) => {
-    circle.style.left = x - 12 + 'px';
-    circle.style.top = y - 12 + 'px';
-    circle.style.scale = (circles.length - index) / circles.length;
-    
-    circle.x = x;
-    circle.y = y;
-    
-    const nextCircle = circles[index + 1] || circles[0];
-    x += (nextCircle.x - x) * 0.3;
-    y += (nextCircle.y - y) * 0.3;
+backToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
   });
-  
-  requestAnimationFrame(animateCircles);
-}
+});
 
-animateCircles();
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 500) {
+    backToTopBtn.classList.add('active');
+  } else {
+    backToTopBtn.classList.remove('active');
+  }
+});
 
-
-console.log('Portfolio animations loaded successfully!');
+console.log('Portfolio improvements loaded successfully!');
