@@ -538,12 +538,14 @@ section {
   text-shadow: 0 0 10px rgba(242, 199, 4, 0.3);
 }
 
-/* Fix for Express logo visibility on dark mode */
-.express-logo {
+/* Fix for Express and Next.js logo visibility on dark mode */
+.express-logo,
+.nextjs-logo {
   filter: invert(1) brightness(2) !important;
 }
 
-.skill-box:hover .express-logo {
+.skill-box:hover .express-logo,
+.skill-box:hover .nextjs-logo {
   filter: invert(1) brightness(1.5) drop-shadow(0 0 15px var(--main-color)) !important;
 }
 
