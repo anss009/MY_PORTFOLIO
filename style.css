@@ -1,10 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 
 :root {
-  --bg-color: #080808;
-  --second-bg-color: #131313;
-  --text-color: white;
-  --main-color: #f2c704;
+  --bg-color: #0a1628;
+  --second-bg-color: #0f1f36;
+  --text-color: #e2e8f0;
+  --main-color: #38bdf8;
+  --accent-hover: #0ea5e9;
+  --secondary-text: #94a3b8;
+  --border-color: #1e3a5f;
 }
 
 * {
@@ -134,7 +137,7 @@ html::-webkit-scrollbar-thumb {
   width: 100%;
   height: 70px;
   padding: 3rem 9%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(10, 22, 40, 0.85);
   backdrop-filter: blur(20px);
   display: flex;
   justify-content: space-between;
@@ -255,8 +258,8 @@ html::-webkit-scrollbar-thumb {
 .home-content h3 {
   position: relative;
   font-size: 3.5rem;
-  color: #252839;
-  -webkit-text-stroke: #252839;
+  color: #1e3a5f;
+  -webkit-text-stroke: #1e3a5f;
   text-transform: uppercase;
   opacity: 0;
   animation: fadeInUp 1s ease 0.5s forwards;
@@ -269,9 +272,9 @@ html::-webkit-scrollbar-thumb {
   left: 0;
   width: 0;
   height: 100%;
-  color: #ca0b0b;
-  -webkit-text-stroke: 0vw #252839;
-  border-right: 2px solid #ca0b0b;
+  color: var(--main-color);
+  -webkit-text-stroke: 0vw #1e3a5f;
+  border-right: 2px solid var(--main-color);
   overflow: hidden;
   animation: animate 5s linear infinite;
 }
@@ -296,6 +299,7 @@ html::-webkit-scrollbar-thumb {
   max-width: 700px;
   opacity: 0;
   animation: fadeInUp 1s ease 0.7s forwards;
+  color: var(--secondary-text);
 }
 
 .home-content .social-icon {
@@ -328,7 +332,7 @@ html::-webkit-scrollbar-thumb {
   padding: 1rem 2rem;
   margin: 0.5em;
   background: var(--main-color);
-  color: black;
+  color: #0a1628;
   border: none;
   font-size: 20px;
   border-radius: 1rem;
@@ -341,7 +345,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 .btn2 {
-  background: black;
+  background: transparent;
   color: var(--main-color);
   border: 1px solid var(--main-color);
 }
@@ -354,13 +358,13 @@ html::-webkit-scrollbar-thumb {
 }
 
 .btn2:hover {
-  color: black;
+  color: #0a1628;
   transform: translateY(-3px);
 }
 
 .btn:after {
   content: "";
-  background: black;
+  background: var(--bg-color);
   position: absolute;
   z-index: -1;
   left: -20%;
@@ -372,7 +376,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 .btn2:after {
-  background: var(--main-color);
+  background: var(--accent-hover);
 }
 
 .btn:hover:after {
@@ -442,6 +446,7 @@ section {
   font-size: 1.6rem;
   font-weight: 400;
   margin-bottom: 2rem;
+  color: var(--secondary-text);
 }
 
 .about-content .social-icon a {
@@ -475,13 +480,13 @@ section {
 }
 
 .skill-box {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--second-bg-color);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   padding: 4rem 2rem;
   border-radius: 2.5rem;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-color);
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
   position: relative;
@@ -495,7 +500,7 @@ section {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(242, 199, 4, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
   opacity: 0;
   transition: 0.5s ease;
   pointer-events: none;
@@ -508,8 +513,8 @@ section {
 .skill-box:hover {
   border-color: var(--main-color);
   transform: translateY(-1.5rem) scale(1.03);
-  box-shadow: 0 15px 35px rgba(242, 199, 4, 0.2), 0 0 15px rgba(242, 199, 4, 0.1);
-  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15), 0 0 15px rgba(56, 189, 248, 0.1);
+  background: rgba(56, 189, 248, 0.05);
 }
 
 .skill-box img {
@@ -535,7 +540,7 @@ section {
 
 .skill-box:hover h3 {
   color: var(--main-color);
-  text-shadow: 0 0 10px rgba(242, 199, 4, 0.3);
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
 }
 
 /* Fix for Express and Next.js logo visibility on dark mode */
@@ -612,7 +617,7 @@ section {
   width: 4.5rem;
   height: 4.5rem;
   background: var(--main-color);
-  color: black;
+  color: #0a1628;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
@@ -681,7 +686,7 @@ section {
   border-radius: 2rem;
   cursor: pointer;
   transition: all 0.5s ease;
-  box-shadow: rgba(250, 205, 4, 0.301) 0px 5px 15px;
+  box-shadow: rgba(56, 189, 248, 0.15) 0px 5px 15px;
   opacity: 0;
   transform: translateY(50px);
 }
@@ -745,6 +750,7 @@ section {
   line-height: 1.6;
   margin: 0;
   transition: color 0.3s ease;
+  color: var(--secondary-text);
 }
 
 /* ===== PROJECTS ===== */
@@ -773,10 +779,11 @@ section {
 
 .projects .project-box {
   flex: 1 1 300px;
-  background: var(--bg-color);
+  background: var(--second-bg-color);
   padding: 2rem;
   border-radius: 1.5rem;
-  box-shadow: 0 0 15px rgba(250, 205, 4, 0.301);
+  border: 1px solid var(--border-color);
+  box-shadow: none;
   transition: all 0.5s ease;
   opacity: 0;
   transform: scale(0.8);
@@ -840,7 +847,7 @@ section {
 
 .projects .project-content p {
   font-size: 1.4rem;
-  color: var(--text-color);
+  color: var(--secondary-text);
   margin-bottom: 1.5rem;
   flex-grow: 1;
 }
@@ -848,7 +855,7 @@ section {
 .projects .project-content a {
   font-size: 1.5rem;
   background: var(--main-color);
-  color: black;
+  color: #0a1628;
   text-decoration: none;
   transition: all 0.3s ease;
   padding: 0.5rem 1.5rem;
@@ -893,7 +900,7 @@ section {
   content: "";
   position: absolute;
   width: 6px;
-  background: #706430ea;
+  background: var(--border-color);
   top: 0;
   bottom: 0;
   left: 50%;
@@ -927,7 +934,7 @@ section {
   height: 25px;
   line-height: 25px;
   right: -17px;
-  background-color: white;
+  background-color: var(--second-bg-color);
   border-radius: 50%;
   border: 4px solid var(--main-color);
   top: 15px;
@@ -936,7 +943,7 @@ section {
   text-align: center;
   font-weight: 600;
   font-family: "Font Awesome\ 5 Free";
-  color: #706430ea;
+  color: var(--main-color);
   transition: all 0.3s ease;
 }
 
@@ -985,7 +992,7 @@ section {
 }
 
 .education .content {
-  background: var(--main-color);
+  background: var(--border-color);
   position: relative;
   border-radius: 6px;
   transition: all 0.3s ease;
@@ -1010,13 +1017,13 @@ section {
 .education .content .tag h2 {
   font-size: 2rem;
   font-weight: 600;
-  color: black;
+  color: var(--text-color);
 }
 
 .education .content .desc p {
   font-size: 1.3rem;
   font-weight: 500;
-  color: black;
+  color: var(--secondary-text);
 }
 
 /* ===== FOOTER ===== */
@@ -1025,18 +1032,19 @@ section {
   bottom: 0;
   width: 100%;
   padding: 40px 0;
-  background: var(--main-color);
+  background: #071120;
+  border-top: 1px solid var(--border-color);
 }
 
 .footer .social {
   text-align: center;
   padding-bottom: 25px;
-  color: black;
+  color: var(--secondary-text);
 }
 
 .footer .social a {
   font-size: 25px;
-  color: black;
+  color: var(--secondary-text);
   display: inline-block;
   text-align: center;
   margin: 0 10px;
@@ -1045,7 +1053,8 @@ section {
 
 .footer .social a:hover {
   transform: scale(1.3) translateY(-8px) rotate(360deg);
-  text-shadow: 0 0 15px black;
+  color: var(--main-color);
+  text-shadow: 0 0 15px var(--main-color);
 }
 
 .footer ul {
@@ -1063,13 +1072,14 @@ section {
 }
 
 .footer ul li a {
-  color: black;
+  color: var(--secondary-text);
   border-bottom: 2px solid transparent;
   transition: 0.3s ease;
 }
 
 .footer ul li a:hover {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--main-color);
+  color: var(--main-color);
   transform: translateY(-2px);
 }
 
@@ -1077,7 +1087,7 @@ section {
   margin-top: 50px;
   text-align: center;
   font-size: 16px;
-  color: black;
+  color: var(--secondary-text);
 }
 
 /* ===== RESPONSIVE ===== */
