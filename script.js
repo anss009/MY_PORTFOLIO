@@ -82,6 +82,25 @@ const animateOnScroll = () => {
     }
   }
 
+  // Experience Section
+  const experienceHeading = document.querySelector('.experience .heading');
+  const experienceContainers = document.querySelectorAll('.experience .container');
+
+  if (experienceHeading) {
+    const experiencePosition = experienceHeading.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.3;
+
+    if (experiencePosition < screenPosition) {
+      experienceHeading.classList.add('animate');
+
+      experienceContainers.forEach((container, index) => {
+        setTimeout(() => {
+          container.classList.add('animate');
+        }, index * 300);
+      });
+    }
+  }
+
   // Education Section
   const educationHeading = document.querySelector('.education .heading');
   const educationContainers = document.querySelectorAll('.education .container');
@@ -224,7 +243,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all animated elements
-const animatedElements = document.querySelectorAll('.skill-box, .service-box, .project-box, .education .container');
+const animatedElements = document.querySelectorAll('.skill-box, .service-box, .project-box, .education .container, .experience .container');
 animatedElements.forEach(el => observer.observe(el));
 
 // Portfolio interactions initialized

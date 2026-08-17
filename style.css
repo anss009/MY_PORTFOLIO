@@ -874,29 +874,37 @@ section {
   box-shadow: 0 5px 15px var(--main-color);
 }
 
-/* ===== EDUCATION ===== */
-.education {
+/* ===== EXPERIENCE & EDUCATION ===== */
+.experience {
   background-color: var(--bg-color);
 }
 
-.education .heading {
+.education {
+  background-color: var(--second-bg-color);
+}
+
+.education .heading,
+.experience .heading {
   opacity: 0;
   transform: translateY(-30px);
   transition: all 1s ease;
 }
 
-.education .heading.animate {
+.education .heading.animate,
+.experience .heading.animate {
   opacity: 1;
   transform: translateY(0);
 }
 
-.education .timeline {
+.education .timeline,
+.experience .timeline {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.education .timeline::after {
+.education .timeline::after,
+.experience .timeline::after {
   content: "";
   position: absolute;
   width: 6px;
@@ -908,7 +916,8 @@ section {
   z-index: 2;
 }
 
-.education .container {
+.education .container,
+.experience .container {
   padding: 10px 40px;
   position: relative;
   background-color: inherit;
@@ -918,16 +927,19 @@ section {
   transition: all 0.8s ease;
 }
 
-.education .container.animate {
+.education .container.animate,
+.experience .container.animate {
   opacity: 1;
   transform: translateX(0);
 }
 
-.education .container.right.animate {
+.education .container.right.animate,
+.experience .container.right.animate {
   transform: translateX(0);
 }
 
-.education .container::after {
+.education .container::after,
+.experience .container::after {
   content: "\f501";
   position: absolute;
   width: 25px;
@@ -942,26 +954,35 @@ section {
   font-size: 1.89rem;
   text-align: center;
   font-weight: 600;
-  font-family: "Font Awesome\ 5 Free";
+  font-family: "Font Awesome 5 Free";
   color: var(--main-color);
   transition: all 0.3s ease;
 }
 
-.education .container:hover::after {
+.experience .container::after {
+  content: "\f0b1";
+  font-family: "Font Awesome 6 Free";
+}
+
+.education .container:hover::after,
+.experience .container:hover::after {
   transform: scale(1.2);
   box-shadow: 0 0 15px var(--main-color);
 }
 
-.education .left {
+.education .left,
+.experience .left {
   left: 0;
 }
 
-.education .right {
+.education .right,
+.experience .right {
   left: 50%;
   transform: translateX(50px);
 }
 
-.education .left::before {
+.education .left::before,
+.experience .left::before {
   content: "";
   height: 0;
   position: absolute;
@@ -974,7 +995,8 @@ section {
   border-color: transparent transparent transparent var(--main-color);
 }
 
-.education .right::before {
+.education .right::before,
+.experience .right::before {
   content: "";
   height: 0;
   position: absolute;
@@ -987,43 +1009,68 @@ section {
   border-color: transparent var(--main-color) transparent transparent;
 }
 
-.education .right::after {
+.education .right::after,
+.experience .right::after {
   left: -16px;
 }
 
-.education .content {
+.education .content,
+.experience .content {
   background: var(--border-color);
   position: relative;
   border-radius: 6px;
   transition: all 0.3s ease;
 }
 
-.education .container:hover .content {
+.education .container:hover .content,
+.experience .container:hover .content {
   transform: scale(1.03);
   box-shadow: 0 0 20px var(--main-color);
 }
 
-.education .content .tag {
+.education .content .tag,
+.experience .content .tag {
   font-size: 1.5rem;
   padding-top: 1.5rem;
   margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
-.education .content .desc {
+.education .content .desc,
+.experience .content .desc {
   margin-left: 1.5rem;
-  padding: 1rem;
+  margin-right: 1.5rem;
+  padding: 1rem 0;
 }
 
-.education .content .tag h2 {
-  font-size: 2rem;
+.education .content .tag h2,
+.experience .content .tag h2 {
+  font-size: 1.8rem;
   font-weight: 600;
   color: var(--text-color);
+  line-height: 1.3;
 }
 
-.education .content .desc p {
+.company-sub {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--main-color);
+  margin-top: 0.4rem;
+}
+
+.education .content .desc p,
+.experience .content .desc p {
   font-size: 1.3rem;
   font-weight: 500;
   color: var(--secondary-text);
+  line-height: 1.6;
+}
+
+.skill-icon-fa {
+  font-size: 5rem;
+  color: var(--main-color);
+  margin-bottom: 2rem;
+  display: block;
 }
 
 /* ===== FOOTER ===== */
